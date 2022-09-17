@@ -1,0 +1,83 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+}
+body {
+  margin: 0;
+  background-color: #eeee;
+}
+.header {
+  min-height: 10vh;
+  font-size: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  background-color: rgba(0, 0, 0, 0.205);
+}
+.wrapper {
+  min-height: 80vh;
+  max-width: 1280px;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+}
+.carousel {
+  max-width: 100%;
+  overflow: hidden;
+  background-color: white;
+  height: 100px;
+  display: flex;
+  position: relative;
+}
+.carousel:hover .slide {
+  animation-play-state: paused;
+}
+.carousel::before,
+.carousel::after {
+  position: absolute;
+  content: "";
+  height: 100px;
+  width: 200px;
+  z-index: 1;
+  top: 0;
+}
+.carousel::before {
+  left: 0;
+  background: linear-gradient(
+    to right,
+    rgba(209, 209, 209, 1) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+.carousel::after {
+  right: 0;
+  background: linear-gradient(
+    to left,
+    rgba(209, 209, 209, 1) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+.slide {
+  display: flex;
+  align-items: center;
+  height: inherit;
+  animation: slideshow 20s linear infinite;
+}
+.slided__image {
+  height: calc(100% - 20px);
+  margin: 0 30px;
+}
+
+@keyframes slideshow {
+  0% {
+    translate: 0;
+  }
+  100% {
+    translate: -100%;
+  }
+}
